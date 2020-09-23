@@ -1,0 +1,14 @@
+.bio {
+  background-color: #705b5626;
+  border-top: 2px solid #705c5614;
+  border-bottom: 2px solid #705c5614;
+  .container {
+    max-width: 960px;
+    display: grid;
+    padding: 60px 0;
+    grid-template-columns: 2.5fr 1fr;
+    grid-template-rows: 1fr;
+    gap: 0px 100px;
+    grid-template-areas: '. .';
+  }
+}
