@@ -58,6 +58,14 @@ module.exports = {
             family: `Raleway`,
             subsets: [`latin`],
           },
+          {
+            family: `Lato`,
+            variants: [`300`, `400`, `700`],
+          },
+          {
+            family: `Lato`,
+            subsets: [`latin`],
+          },
         ],
       },
     },

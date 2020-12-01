@@ -10,5 +10,10 @@
     grid-template-rows: 1fr;
     gap: 0px 100px;
     grid-template-areas: '. .';
+    p {
+      b {
+        font-size: 1.25rem;
+      }
+    }
   }
 }
