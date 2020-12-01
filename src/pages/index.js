@@ -7,16 +7,18 @@ import Bio from '../components/Bio'
 import Layout from '../components/layout'
 import ArticlePreview from '../components/article-preview'
 import Img from 'gatsby-image'
+import './blog.scss'
 import '../components/Services.scss'
 
 class RootIndex extends React.Component {
   render() {
     const littleFoxLogo = get(this.props, 'data.contentfulLittleFoxLogo')
+    const headerBackgroundImage = get(this.props, 'data.contentfulHeaderBackground')
     const bio = get(this.props, 'data.contentfulBio')
     const blogPosts = get(this.props, 'data.allContentfulBlogPost')
     return (
       <div>
-        <Hero logo={littleFoxLogo} bio={bio} />
+        <Hero headerBackgroundImage={headerBackgroundImage} logo={littleFoxLogo} bio={bio} />
         <Bio bio={bio} />
         <div className="services">
           <div className="container">
@@ -76,25 +78,34 @@ class RootIndex extends React.Component {
             </ul>
           </div>
         </div>
-        <div className="blog-posts">
+        <div className="blog-post-list">
+          <Helmet>
+            <link
+              rel="stylesheet"
+              href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+              integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+              crossorigin="anonymous"
+            />
+          </Helmet>
           <div className="container">
-            <ul>
-              {blogPosts.edges.map((blogPost) => (
-                <li key={blogPost.node.id}>
-                  <p>{blogPost.node.url}</p>
-                  <p>{blogPost.node.title}</p>
-                  <p>{blogPost.node.author.authorName}</p>
-                  <p>{blogPost.node.author.role}</p>
-                  <p>{blogPost.node.publishDate}</p>
-                  <Img
-                    fluid={{
-                      ...blogPost.node.mainImage.fluid,
-                      aspectRatio: 16 / 9,
-                    }}
-                  />
-                </li>
-              ))}
-            </ul>
+            <div className="row">
+              <ul>
+                {blogPosts.edges.map((blogPost) => (
+                  <li key="blogPost.node.id">
+                    <a href={blogPost.node.url}>
+                      <Img fluid={blogPost.node.mainImage.fluid} />
+                      <h3>{blogPost.node.title}</h3>
+                      <span>
+                        {blogPost.node.author.authorName}&nbsp;|&nbsp;
+                        {blogPost.node.author.role}
+                      </span>
+                      <br />
+                      <span>{blogPost.node.publishDate}</span>
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
         </div>
       </div>
@@ -133,7 +144,14 @@ export const pageQuery = graphql`
     }
     contentfulLittleFoxLogo {
       logo {
-        fluid(maxWidth: 2000, maxHeight: 1250, resizingBehavior: SCALE) {
+        fluid(maxWidth: 700, maxHeight: 700) {
+          ...GatsbyContentfulFluid_tracedSVG
+        }
+      }
+    }
+    contentfulHeaderBackground {
+      headerBackgroundImage {
+        fluid(maxWidth: 1920, maxHeight: 1280, resizingBehavior: SCALE) {
           ...GatsbyContentfulFluid_tracedSVG
         }
       }
