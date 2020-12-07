@@ -6,10 +6,12 @@ import './bio.scss'
 const Bio = ({ bio }) => {
   if (bio) {
     return (
-      <div className="bio">
+      <div className="bio" id="bio">
         <div className="container">
           <RichTextRenderer richTextDocument={bio.bioCopy} />
-          <Img fluid={{ ...bio.bioImage.fluid, aspectRatio: 1 / 1 }} />
+          <p>To find out more about my services and how I can bring your ideas to life, click here</p>
+              <p>Heard enough? Contact me and we’ll chat!</p>
+          {/* <Img fluid={{ ...bio.bioImage.fluid, aspectRatio: 1 / 1 }} /> */}
         </div>
       </div>
     )

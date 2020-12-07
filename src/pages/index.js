@@ -9,6 +9,7 @@ import ArticlePreview from '../components/article-preview'
 import Img from 'gatsby-image'
 import './blog.scss'
 import '../components/Services.scss'
+import Services from '../components/Services'
 
 class RootIndex extends React.Component {
   render() {
@@ -16,77 +17,21 @@ class RootIndex extends React.Component {
     const headerBackgroundImage = get(this.props, 'data.contentfulHeaderBackground')
     const bio = get(this.props, 'data.contentfulBio')
     const blogPosts = get(this.props, 'data.allContentfulBlogPost')
+    const services = get(this.props, 'data.allContentfulServices')
     return (
       <div>
+        <Helmet>
+          <link
+            rel="stylesheet"
+            href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+            integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+            crossorigin="anonymous"
+          />
+        </Helmet>
         <Hero headerBackgroundImage={headerBackgroundImage} logo={littleFoxLogo} bio={bio} />
         <Bio bio={bio} />
-        <div className="services">
-          <div className="container">
-            <h2>Services</h2>
-            <ul>
-              <li>
-                <h3>Line Editing</h3>
-                <p>
-                  <strong>
-                    The most detailed form of text-correction. Includes careful
-                    attention to sentence structures, clarity &amp; rhythms.
-                  </strong>
-                </p>
-                <p>
-                  Suitable for: Non-native speakers, and others with additional
-                  needs, such as dyslexia.
-                </p>
-                <p>
-                  Most writers will do better to master prose style &amp;
-                  quality themselves, than try to outsource the job.
-                </p>
-              </li>
-              <li>
-                <h3>Copy Editing</h3>
-                <p>
-                  <strong>
-                    Typos, spellings and punctuation errors, but extends into
-                    consistency, fact-checking &amp; sentence clarity. Further
-                    details below.
-                  </strong>
-                </p>
-                <p>
-                  Suitable for: Self-publishers, Writers wanting a polish prior
-                  to agent submission.
-                </p>
-                <p>
-                  Copy-editing services are not normally required by writers
-                  seeking trad publication.
-                </p>
-              </li>
-              <li>
-                <h3>Proof Reading</h3>
-                <p>
-                  <strong>
-                    The lightest form of text-correction. Deals largely with
-                    typos, spellings and punctuation errors.
-                  </strong>
-                </p>
-                <p>
-                  Suitable for: Self-publishers, if text is already very clean.
-                </p>
-                <p>
-                  This service is not normally needed for writers seeking trad
-                  publication.
-                </p>
-              </li>
-            </ul>
-          </div>
-        </div>
-        <div className="blog-post-list">
-          <Helmet>
-            <link
-              rel="stylesheet"
-              href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
-              integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
-              crossorigin="anonymous"
-            />
-          </Helmet>
+        <Services services={services} />
+        {/* <div className="blog-post-list">
           <div className="container">
             <div className="row">
               <ul>
@@ -107,7 +52,7 @@ class RootIndex extends React.Component {
               </ul>
             </div>
           </div>
-        </div>
+        </div> */}
       </div>
     )
   }
@@ -138,6 +83,20 @@ export const pageQuery = graphql`
           }
           postCopy {
             json
+          }
+        }
+      }
+    }
+    allContentfulServices {
+      edges {
+        node {
+          id
+          serviceName
+          shortDescription {
+            shortDescription
+          }
+          longDescription {
+            longDescription
           }
         }
       }

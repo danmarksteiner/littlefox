@@ -1,18 +1,23 @@
 .bio {
-  background-color: #705b5626;
+  background-color: #ffffff20;
   border-top: 2px solid #705c5614;
   border-bottom: 2px solid #705c5614;
   .container {
-    max-width: 960px;
+    max-width: 960px !important;
     display: grid;
-    padding: 60px 0;
-    grid-template-columns: 2.5fr 1fr;
-    grid-template-rows: 1fr;
-    gap: 0px 100px;
-    grid-template-areas: '. .';
+    padding: 90px 0;
+    // grid-template-columns: 2.5fr 1fr;
+    // grid-template-rows: 1fr;
+    // gap: 0px 100px;
+    // grid-template-areas: '. .';
+    text-align: center;
     p {
+      font-size: 1.25rem;
+      padding-bottom: 0.25rem;
+      color: #525252;
       b {
-        font-size: 1.25rem;
+        font-size: 1.5rem;
+        color: #525252;
       }
     }
   }
