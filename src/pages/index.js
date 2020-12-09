@@ -10,6 +10,8 @@ import Img from 'gatsby-image'
 import './blog.scss'
 import '../components/Services.scss'
 import Services from '../components/Services'
+import About from '../components/About'
+import ContactForm from '../components/ContactForm'
 
 class RootIndex extends React.Component {
   render() {
@@ -18,6 +20,7 @@ class RootIndex extends React.Component {
     const bio = get(this.props, 'data.contentfulBio')
     const blogPosts = get(this.props, 'data.allContentfulBlogPost')
     const services = get(this.props, 'data.allContentfulServices')
+    const aboutContent = get(this.props, 'data.contentfulAboutMe')
     return (
       <div>
         <Helmet>
@@ -31,6 +34,8 @@ class RootIndex extends React.Component {
         <Hero headerBackgroundImage={headerBackgroundImage} logo={littleFoxLogo} bio={bio} />
         <Bio bio={bio} />
         <Services services={services} />
+        <About aboutContent={aboutContent} />
+        <ContactForm />
         {/* <div className="blog-post-list">
           <div className="container">
             <div className="row">
@@ -98,6 +103,27 @@ export const pageQuery = graphql`
           longDescription {
             longDescription
           }
+        }
+      }
+    }
+    contentfulAboutMe {
+      sectionHeading
+      sectionSubtitle
+      sectionImage {
+        fluid(maxWidth: 500, maxHeight: 500, resizingBehavior: SCALE) {
+          ...GatsbyContentfulFluid_tracedSVG
+        }
+      }
+      sectionBody {
+        content {
+          content {
+            value
+            nodeType
+            marks {
+              type
+            }
+          }
+          nodeType
         }
       }
     }

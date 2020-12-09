@@ -11,6 +11,10 @@
     // gap: 0px 100px;
     // grid-template-areas: '. .';
     text-align: center;
+    @media (hover: none) {
+      padding: 45px 15px;
+      text-align: left;
+    }
     p {
       font-size: 1.25rem;
       padding-bottom: 0.25rem;
