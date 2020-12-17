@@ -1,40 +1,88 @@
-import React from 'react'
+import React, { Component } from 'react'
+import { Link } from "gatsby"
 import Img from 'gatsby-image'
 import { SiFacebook, SiTwitter, SiInstagram } from "react-icons/si";
-import { IoIosArrowDown } from "react-icons/io";
+import { IoIosArrowDown, IoIosMenu, IoIosClose } from "react-icons/io";
 import './Hero.scss'
 
-const Hero = ({ logo, headerBackgroundImage }) => {
-  return (
-    <div className="hero">
-      <Img className="header-bg" fluid={{ ...headerBackgroundImage.headerBackgroundImage.fluid, aspectRatio: 1 / 1 }} />
-      <div className="header-gradient"></div>
-      <nav className="navigation">
-          <ul>
-            <li>About me</li>
-            <li>Services</li>
-            <li>Blog</li>
-            <li>Testimonials</li>
-            <li>Get in touch</li>
-          </ul>
-          <ul>
-            <li><SiFacebook /></li>
-            <li><SiTwitter /></li>
-            <li><SiInstagram /></li>
-          </ul>
-      </nav>
+class Hero extends Component {
 
-      <div className="logo">
-        <Img fluid={{ ...logo.logo.fluid, aspectRatio: 1 / 1 }} />
-        <a href="">Services</a>
-        <a href="">Get In Touch</a>
-      </div>
+  constructor(props) {
+    super(props)
+    this.state = {
+      logo: '',
+      pageTitle: '',
+      headerBackgroundImage: '',
+      navOpen: false
+    }
+  }
 
-      <div className="arrow-link">
-        <a href="#bio"><IoIosArrowDown /></a>
+  navigationToggle = (e) => {
+    this.setState({ navOpen: !this.state.navOpen })
+  }
+
+  navIcon = () => {
+    if(this.state.navOpen === false) {
+      return (
+        <IoIosMenu className="navigation-close-icon" />
+      )
+    } else {
+      return (
+        <IoIosClose className="navigation-open-icon" />
+      )
+    }
+
+  }
+
+  Renderlogo = () => {
+    if(this.props.logo) {
+      return (
+        <div className="logo">
+          <Img fluid={{ ...this.props.logo.logo.fluid, aspectRatio: 1 / 1 }} />
+          <Link to="/services">Services</Link>
+          <Link to="#Contact">Get In Touch</Link>
+        </div>
+      )} 
+      else if(this.props.pageTitle) { 
+        return (
+          <div className="page-title">
+            <h1>{this.props.pageTitle}</h1>
+          </div>
+        )
+      } else {
+        return (
+          <div>No Logo</div>
+        )
+    }
+  }
+  render () {
+    return (
+      <div className="hero">
+        <Img className="header-bg" fluid={{ ...this.props.headerBackgroundImage.fluid, aspectRatio: 1 / 1 }} />
+        <div className="header-gradient"></div>
+        <nav className={(this.state.navOpen) ? 'navigation open' : 'navigation closed'}>
+            <ul>
+              <li><Link to="../#About">About me</Link></li>
+              <li><Link to="../services">Services</Link></li>
+              {/* <li><Link to="../blog">Blog</Link></li> */}
+              <li><Link to="../#Testimonials">Testimonials</Link></li>
+              <li><Link to="../#Contact">Get in touch</Link></li>
+            </ul>
+            <ul className="social">
+              <li><SiFacebook /></li>
+              <li><SiTwitter /></li>
+              <li><SiInstagram /></li>
+            </ul>
+        </nav>
+        <this.Renderlogo />
+        <div className="arrow-link">
+          <a href="#bio"><IoIosArrowDown /></a>
+        </div>
+
+        <a href="#" className='navigation-menu' onClick={this.navigationToggle}>{this.navIcon()}</a>
       </div>
-    </div>
-  )
+    )
+  }
 }
 
 export default Hero

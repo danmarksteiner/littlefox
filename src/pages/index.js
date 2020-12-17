@@ -10,14 +10,20 @@ import Img from 'gatsby-image'
 import './blog.scss'
 import '../components/Services.scss'
 import Services from '../components/Services'
+import About from '../components/About'
+import ContactForm from '../components/ContactForm'
 
 class RootIndex extends React.Component {
   render() {
     const littleFoxLogo = get(this.props, 'data.contentfulLittleFoxLogo')
-    const headerBackgroundImage = get(this.props, 'data.contentfulHeaderBackground')
+    const headerBackgroundImage = get(this.props, 'data.contentfulHeaderBackground.headerBackgroundImage')
+    const contactFormImage = get(this.props, 'data.contentfulContactFormImage.contactFormImage')
     const bio = get(this.props, 'data.contentfulBio')
     const blogPosts = get(this.props, 'data.allContentfulBlogPost')
     const services = get(this.props, 'data.allContentfulServices')
+    const aboutContent = get(this.props, 'data.contentfulAboutMe')
+    const accreditations = get(this.props, 'data.allContentfulAccreditations')
+    const testimonials = get(this.props, 'data.allContentfulTestimonials')
     return (
       <div>
         <Helmet>
@@ -28,9 +34,11 @@ class RootIndex extends React.Component {
             crossorigin="anonymous"
           />
         </Helmet>
-        <Hero headerBackgroundImage={headerBackgroundImage} logo={littleFoxLogo} bio={bio} />
+        <Hero headerBackgroundImage={headerBackgroundImage} logo={littleFoxLogo} />
         <Bio bio={bio} />
-        <Services services={services} />
+        <Services services={services} testimonials={testimonials} />
+        <About aboutContent={aboutContent} accreditations={accreditations} />
+        <ContactForm contactFormImage={contactFormImage} />
         {/* <div className="blog-post-list">
           <div className="container">
             <div className="row">
@@ -87,6 +95,20 @@ export const pageQuery = graphql`
         }
       }
     }
+    allContentfulAccreditations {
+      edges {
+        node {
+          accreditationLogo {
+            fluid {
+              ...GatsbyContentfulFluid_tracedSVG
+            }
+          }
+          accreditationLink
+          name
+          id
+        }
+      }
+    }
     allContentfulServices {
       edges {
         node {
@@ -101,6 +123,39 @@ export const pageQuery = graphql`
         }
       }
     }
+    allContentfulTestimonials {
+      edges {
+        node {
+          id
+          name
+          client
+          quote {
+            quote
+          }
+        }
+      }
+    }
+    contentfulAboutMe {
+      sectionHeading
+      sectionSubtitle
+      sectionImage {
+        fluid(maxWidth: 500, maxHeight: 500, resizingBehavior: SCALE) {
+          ...GatsbyContentfulFluid_tracedSVG
+        }
+      }
+      sectionBody {
+        content {
+          content {
+            value
+            nodeType
+            marks {
+              type
+            }
+          }
+          nodeType
+        }
+      }
+    }
     contentfulLittleFoxLogo {
       logo {
         fluid(maxWidth: 700, maxHeight: 700) {
@@ -111,6 +166,13 @@ export const pageQuery = graphql`
     contentfulHeaderBackground {
       headerBackgroundImage {
         fluid(maxWidth: 1920, maxHeight: 1280, resizingBehavior: SCALE) {
+          ...GatsbyContentfulFluid_tracedSVG
+        }
+      }
+    }
+    contentfulContactFormImage {
+      contactFormImage {
+        fluid(maxWidth: 960, maxHeight: 1280, resizingBehavior: SCALE) {
           ...GatsbyContentfulFluid_tracedSVG
         }
       }

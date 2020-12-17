@@ -1,7 +1,8 @@
 import React from 'react';
 import { BsDot } from "react-icons/bs";
+import Testimonials from './Testimonials'
 
-const Services = ({ services }) => {
+const Services = ({ services, testimonials }) => {
   return (
     <div className="services">
       <div className="services-bg">
@@ -19,6 +20,7 @@ const Services = ({ services }) => {
             ))}
           </ul>
       </div>
+      <Testimonials testimonials={testimonials} />
     </div>
   )
 }
