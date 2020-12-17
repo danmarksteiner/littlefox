@@ -32,6 +32,7 @@
     }
   }
   h2 {
+    margin-bottom: 1.25rem;
     @media (hover: none) {
       margin-bottom: 20px;
     }
@@ -42,6 +43,15 @@
   p {
     b {
       font-size: 1.25rem;
+    }
+  }
+  .accreditations {
+    .gatsby-image-wrapper {
+      width: 100%;
+      height: auto;
+      max-width: 250px;
+      display: inline-block;
+      margin: 0 20px 20px 0;
     }
   }
 }

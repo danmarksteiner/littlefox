@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Link } from "gatsby"
 import Img from 'gatsby-image'
 import { SiFacebook, SiTwitter, SiInstagram } from "react-icons/si";
 import { IoIosArrowDown, IoIosMenu, IoIosClose } from "react-icons/io";
@@ -10,6 +11,7 @@ class Hero extends Component {
     super(props)
     this.state = {
       logo: '',
+      pageTitle: '',
       headerBackgroundImage: '',
       navOpen: false
     }
@@ -31,18 +33,40 @@ class Hero extends Component {
     }
 
   }
+
+  Renderlogo = () => {
+    if(this.props.logo) {
+      return (
+        <div className="logo">
+          <Img fluid={{ ...this.props.logo.logo.fluid, aspectRatio: 1 / 1 }} />
+          <Link to="/services">Services</Link>
+          <Link to="#Contact">Get In Touch</Link>
+        </div>
+      )} 
+      else if(this.props.pageTitle) { 
+        return (
+          <div className="page-title">
+            <h1>{this.props.pageTitle}</h1>
+          </div>
+        )
+      } else {
+        return (
+          <div>No Logo</div>
+        )
+    }
+  }
   render () {
     return (
       <div className="hero">
-        <Img className="header-bg" fluid={{ ...this.props.headerBackgroundImage.headerBackgroundImage.fluid, aspectRatio: 1 / 1 }} />
+        <Img className="header-bg" fluid={{ ...this.props.headerBackgroundImage.fluid, aspectRatio: 1 / 1 }} />
         <div className="header-gradient"></div>
         <nav className={(this.state.navOpen) ? 'navigation open' : 'navigation closed'}>
             <ul>
-              <li>About me</li>
-              <li>Services</li>
-              <li>Blog</li>
-              <li>Testimonials</li>
-              <li>Get in touch</li>
+              <li><Link to="../#About">About me</Link></li>
+              <li><Link to="../services">Services</Link></li>
+              {/* <li><Link to="../blog">Blog</Link></li> */}
+              <li><Link to="../#Testimonials">Testimonials</Link></li>
+              <li><Link to="../#Contact">Get in touch</Link></li>
             </ul>
             <ul className="social">
               <li><SiFacebook /></li>
@@ -50,13 +74,7 @@ class Hero extends Component {
               <li><SiInstagram /></li>
             </ul>
         </nav>
-
-        <div className="logo">
-          <Img fluid={{ ...this.props.logo.logo.fluid, aspectRatio: 1 / 1 }} />
-          <a href="">Services</a>
-          <a href="">Get In Touch</a>
-        </div>
-
+        <this.Renderlogo />
         <div className="arrow-link">
           <a href="#bio"><IoIosArrowDown /></a>
         </div>
