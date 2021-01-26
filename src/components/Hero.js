@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
-import { Link } from "gatsby"
-import Img from 'gatsby-image'
 import { SiFacebook, SiTwitter, SiInstagram } from "react-icons/si";
 import { IoIosArrowDown, IoIosMenu, IoIosClose } from "react-icons/io";
+import { Link } from "gatsby"
+import Img from 'gatsby-image'
+
 import './Hero.scss'
 
 class Hero extends Component {

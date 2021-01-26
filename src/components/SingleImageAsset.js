@@ -1,5 +1,6 @@
-import './SingleImageAsset.scss'
 import React from 'react'
+import './SingleImageAsset.scss'
+
 
 const SingleImageAsset = ({ imageAsset }) => {
   if (imageAsset) {
