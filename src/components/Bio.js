@@ -1,7 +1,7 @@
 import React from 'react'
 import RichTextRenderer from '../components/RichTextRenderer'
 import Img from 'gatsby-image'
-import './bio.scss'
+import './Bio.scss'
 
 const Bio = ({ bio }) => {
   if (bio) {
