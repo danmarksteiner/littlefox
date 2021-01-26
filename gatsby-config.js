@@ -25,7 +25,7 @@ if (!spaceId || !accessToken) {
 
 module.exports = {
   siteMetadata: {
-    title: 'Gatsby Contentful starter',
+    title: 'Little Fox Editorial',
   },
   pathPrefix: '/gatsby-contentful-starter',
   plugins: [
@@ -39,35 +39,15 @@ module.exports = {
       options: contentfulConfig,
     },
     {
-      resolve: `gatsby-plugin-prefetch-google-fonts`,
+      resolve: `gatsby-plugin-google-fonts`,
       options: {
         fonts: [
-          {
-            family: `Open Sans`,
-            variants: [`300`, `400`],
-          },
-          {
-            family: `Open Sans`,
-            subsets: [`latin`],
-          },
-          {
-            family: `Raleway`,
-            variants: [`300`, `400`],
-          },
-          {
-            family: `Raleway`,
-            subsets: [`latin`],
-          },
-          {
-            family: `Lato`,
-            variants: [`300`, `400`, `700`],
-          },
-          {
-            family: `Lato`,
-            subsets: [`latin`],
-          },
+          `Open Sans\:300,400,700`,
+          `Raleway\:300,400,700`,
+          `Lato\:300,400,700`,
         ],
-      },
+        display: 'swap'
+      }
     },
   ],
 }
