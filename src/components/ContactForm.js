@@ -62,11 +62,10 @@ class ContactForm extends Component {
     }
     return (
       <form
+        data-netlify="true"
         id="contact-form"
-        method="POST"
         name="contact"
         onSubmit={this.handleSubmit}
-        data-netlify="true"
       >
         <input type="hidden" name="contact" value="contact" />
         <div className="form-group">
@@ -74,6 +73,7 @@ class ContactForm extends Component {
             <label htmlFor="name">Name</label>
             <input
               type="text"
+              name="name"
               className="form-control"
               value={this.state.name}
               onChange={this.onNameChange.bind(this)}
@@ -84,6 +84,7 @@ class ContactForm extends Component {
             <label htmlFor="exampleInputEmail1">Email address</label>
             <input
               type="email"
+              name="email"
               className="form-control"
               aria-describedby="emailHelp"
               value={this.state.email}
@@ -96,6 +97,7 @@ class ContactForm extends Component {
           <div className="field-wrap">
             <label htmlFor="message">Message</label>
             <textarea
+              name="message"
               className="form-control"
               rows="5"
               value={this.state.message}
