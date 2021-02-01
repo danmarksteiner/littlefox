@@ -75,6 +75,7 @@
         text-decoration: none;
         &:hover {
           text-decoration: none;
+          color: #705c56;
         }
       }
     }
@@ -151,6 +152,9 @@
       font-weight: bold;
       font-size: 1.4rem;
       text-decoration: none;
+      &:hover {
+        opacity: 0.75;
+      }
       @media (hover: none) {
         margin: 10px;
       }
@@ -166,6 +170,10 @@
     left: 50%;
     bottom: 20px;
     transform: translate(-50%, 0);
+    transition: bottom 0.25s ease;
+    &:hover {
+      bottom: 15px;
+    }
     a {
       color: #705c56;
       font-weight: 400;

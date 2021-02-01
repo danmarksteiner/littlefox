@@ -11,8 +11,8 @@ const About = ({ aboutContent, accreditations }) => {
       <Img fluid={{ ...aboutContent.sectionImage.fluid, aspectRatio: 1 / 1 }} />
     </div>
     <div>
-      <h2>{aboutContent.sectionHeading}</h2>
-      <h3>{aboutContent.sectionSubtitle}</h3>
+      {/* <h2>{aboutContent.sectionHeading}</h2> */}
+      <h2>{aboutContent.sectionSubtitle}</h2>
       <RichTextRenderer richTextDocument={aboutContent.sectionBody} />
       <div className="accreditations">
         {accreditations.edges.map((accreditation) => (

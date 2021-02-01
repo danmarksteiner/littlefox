@@ -4,7 +4,7 @@ import './Testimonials.scss'
 
 const Testimonials = ({ testimonials }) => {
 return (
-    <div id="Testimonials" className="testimonials">
+    <div className="testimonials">
       <Carousel fade={true} interval={3000}>
         {testimonials.edges.map((testimonial) => (
           <Carousel.Item key={testimonial.node.id}>

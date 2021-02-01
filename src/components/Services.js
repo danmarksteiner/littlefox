@@ -1,14 +1,16 @@
 import React from 'react';
+import { Link } from "gatsby"
 import { BsDot } from "react-icons/bs";
 import Testimonials from './Testimonials'
 
+
 const Services = ({ services, testimonials }) => {
   return (
-    <div className="services">
+    <div id="Testimonials" className="services">
       <div className="services-bg">
         <img src="services-image.jpg" />
       </div>
-      <div className="services-gradient"></div>
+      {/* <div className="services-gradient"></div> */}
       <div className="container">
           <h2>I can help you with a whole bunch of editorial services</h2>
           <ul>
@@ -19,6 +21,7 @@ const Services = ({ services, testimonials }) => {
               </li>
             ))}
           </ul>
+          <p><Link to="/services">Find out more</Link></p>
       </div>
       <Testimonials testimonials={testimonials} />
     </div>

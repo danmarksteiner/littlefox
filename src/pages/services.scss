@@ -1,105 +1,17 @@
 .services-page {
   position: relative;
   padding: 0;
-  // nav {
-  //   margin: auto;
-  //   color: #fff;
-  //   display: grid;
-  //   grid-template-columns: 1fr 1fr;
-  //   grid-template-rows: 1fr;
-  //   gap: 0px 0px;
-  //   grid-template-areas: '. .';
-  //   ul {
-  //     margin: 0;
-  //     padding: 10px 20px;
-  //     text-align: right;
-  //     &:first-child {
-  //       text-align: left;
-  //     }
-  //     svg {
-  //       font-size: 2rem;
-  //       color: #525252;
-  //     }
-  //     a {
-  //       color: #525252;
-  //       text-decoration: none;
-  //       @media (hover: none) {
-  //         color: #fff;
-  //       }
-  //       &:hover {
-  //         text-decoration: none;
-  //       }
-  //     }
-  //   }
-  //   li {
-  //     padding: 20px 30px;
-  //     list-style: none;
-  //     font-family: 'Lato', 'Open Sans', sans-serif;
-  //     font-size: 1.2rem;
-  //     letter-spacing: 0.05rem;
-  //     font-weight: 700;
-  //     display: inline-block;
-  //     border-radius: 10px;
-  //     &:last-child {
-  //       border-right: none;
-  //     }
-  //   }
-  //   @media (hover: none) {
-  //     position: fixed;
-  //     top: 0;
-  //     right: -100%;
-  //     width: 100vw;
-  //     height: 100vh;
-  //     display: block;
-  //     background: #525252;
-  //     z-index: 2;
-  //     -webkit-transition: 300ms ease all;
-  //     transition: 300ms ease all;
-  //     &.open {
-  //       right: 0;
-  //       -webkit-transition: 300ms ease all;
-  //       transition: 300ms ease all;
-  //     }
-  //     ul {
-  //       padding: 100px 20px 0;
-  //       text-align: left;
-  //       li {
-  //         width: 100%;
-  //         padding: 15px 10px;
-  //         display: block;
-  //       }
-  //     }
-  //     .social {
-  //       position: absolute;
-  //       padding: 0 20px 40px;
-  //       bottom: 0;
-  //       li {
-  //         display: inline-block;
-  //         width: auto;
-  //       }
-  //     }
-  //   }
-  // }
-  // .navigation-menu {
-  //   display: none;
-  //   @media (hover: none) {
-  //     display: block;
-  //     position: absolute;
-  //     top: 0px;
-  //     right: 15px;
-  //     z-index: 3;
-  //     font-size: 3rem;
-  //     svg {
-  //       color: #525252;
-  //     }
-  //     &.open {
-  //       svg {
-  //         color: #fff;
-  //       }
-  //     }
-  //   }
-  // }
 }
 .services-container {
   padding: 80px 15px;
+  .services-item {
+    hr {
+      width: 100%;
+    }
+    &:last-child {
+      hr {
+        display: none;
+      }
+    }
+  }
 }

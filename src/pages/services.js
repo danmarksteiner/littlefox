@@ -44,8 +44,10 @@ class Services extends Component {
         <div className="services-container">
           <div className="container">
             {services.edges.map((service) => (
-              <div key={service.node.id}>
+              <div className="services-item" key={service.node.id}>
+                <h3>{service.node.serviceName}</h3>
                 <RichTextRenderer richTextDocument={service.node.longDescription} />
+                <hr></hr>
               </div>
             ))}
           </div>
