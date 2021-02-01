@@ -66,8 +66,9 @@ class ContactForm extends Component {
         method="POST"
         name="contact"
         onSubmit={this.handleSubmit}
+        data-netlify="true"
       >
-        <input type="hidden" name="contact" value="the-name-of-the-html-form" />
+        <input type="hidden" name="contact" value="contact" />
         <div className="form-group">
           <div className="field-wrap">
             <label htmlFor="name">Name</label>
