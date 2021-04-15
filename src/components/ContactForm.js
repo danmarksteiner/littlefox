@@ -119,7 +119,7 @@ class ContactForm extends Component {
 
   render() {
     return (
-      <section className="contact-form">
+      <section id="contact" className="contact-form">
         <div className="contact-container">
           <h2>Get in touch</h2>
           {this.messageSuccess()}
