@@ -1,5 +1,6 @@
 import React from 'react'
 import RichTextRenderer from '../components/RichTextRenderer'
+import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
 import Img from 'gatsby-image'
 import './About.scss'
 
@@ -13,7 +14,8 @@ const About = ({ aboutContent, accreditations }) => {
     <div>
       {/* <h2>{aboutContent.sectionHeading}</h2> */}
       <h2>{aboutContent.sectionSubtitle}</h2>
-      <RichTextRenderer richTextDocument={aboutContent.sectionBody} />
+      <section>{documentToReactComponents(aboutContent.sectionBody.json)}</section>
+      {/* <RichTextRenderer richTextDocument={aboutContent.sectionBody} /> */}
       <div className="accreditations">
         {accreditations.edges.map((accreditation) => (
           <a key={accreditation.node.id} href={accreditation.node.accreditationLink} target="_blank"><Img fluid={{ ...accreditation.node.accreditationLogo.fluid }} alt={accreditation.node.name} /></a>

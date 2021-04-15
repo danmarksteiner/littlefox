@@ -41,7 +41,7 @@ class Hero extends Component {
         <div className="logo">
           <Img fluid={{ ...this.props.logo.logo.fluid, aspectRatio: 1 / 1 }} />
           <Link to="/services">Services</Link>
-          <Link to="#Contact">Get In Touch</Link>
+          <Link to="#contact">Get In Touch</Link>
         </div>
       )} 
       else if(this.props.pageTitle) { 
@@ -63,17 +63,18 @@ class Hero extends Component {
         <div className="header-gradient"></div>
         <nav className={(this.state.navOpen) ? 'navigation open' : 'navigation closed'}>
             <ul>
+            <li><Link to="/">Home</Link></li>
               <li><Link to="../#About">About me</Link></li>
               <li><Link to="../services">Services</Link></li>
               {/* <li><Link to="../blog">Blog</Link></li> */}
-              <li><Link to="../#Testimonials">Testimonials</Link></li>
-              <li><Link to="../#Contact">Get in touch</Link></li>
+              {/* <li><Link to="../#Testimonials">Testimonials</Link></li> */}
+              <li><Link to="../#contact">Get in touch</Link></li>
             </ul>
-            <ul className="social">
+            {/* <ul className="social">
               <li><SiFacebook /></li>
               <li><SiTwitter /></li>
               <li><SiInstagram /></li>
-            </ul>
+            </ul> */}
         </nav>
         <this.Renderlogo />
         <div className="arrow-link">

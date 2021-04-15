@@ -23,7 +23,7 @@ const Services = ({ services, testimonials }) => {
           </ul>
           <p><Link to="/services">Find out more</Link></p>
       </div>
-      <Testimonials testimonials={testimonials} />
+      {/* <Testimonials testimonials={testimonials} /> */}
     </div>
   )
 }

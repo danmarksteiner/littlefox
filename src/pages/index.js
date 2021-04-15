@@ -22,6 +22,7 @@ class RootIndex extends React.Component {
     const blogPosts = get(this.props, 'data.allContentfulBlogPost')
     const services = get(this.props, 'data.allContentfulServices')
     const aboutContent = get(this.props, 'data.contentfulAboutMe')
+    const aboutContentRich = get(this.props, 'data.allContentfulAboutMe')
     const accreditations = get(this.props, 'data.allContentfulAccreditations')
     const testimonials = get(this.props, 'data.allContentfulTestimonials')
     return (
@@ -37,7 +38,7 @@ class RootIndex extends React.Component {
         <Hero headerBackgroundImage={headerBackgroundImage} logo={littleFoxLogo} />
         <Bio bio={bio} />
         <Services services={services} testimonials={testimonials} />
-        <About aboutContent={aboutContent} accreditations={accreditations} />
+        <About aboutContent={aboutContent} accreditations={accreditations} aboutContentRich={aboutContentRich}  />
         <ContactForm contactFormImage={contactFormImage} />
         {/* <div className="blog-post-list">
           <div className="container">
@@ -135,6 +136,13 @@ export const pageQuery = graphql`
         }
       }
     }
+    allContentfulAboutMe {
+      nodes {
+        sectionBody {
+          json
+        }
+      }
+    }
     contentfulAboutMe {
       sectionHeading
       sectionSubtitle
@@ -144,16 +152,7 @@ export const pageQuery = graphql`
         }
       }
       sectionBody {
-        content {
-          content {
-            value
-            nodeType
-            marks {
-              type
-            }
-          }
-          nodeType
-        }
+        json
       }
     }
     contentfulLittleFoxLogo {
@@ -184,16 +183,7 @@ export const pageQuery = graphql`
         }
       }
       bioCopy {
-        content {
-          nodeType
-          content {
-            nodeType
-            marks {
-              type
-            }
-            value
-          }
-        }
+        json
       }
     }
   }

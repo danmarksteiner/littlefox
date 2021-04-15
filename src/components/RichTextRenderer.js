@@ -26,6 +26,9 @@ const RichTextRenderer = ({ richTextDocument }) => {
       [BLOCKS.EMBEDDED_ASSET]: (node) => (
         <SingleImageAsset imageAsset={node.data.target.fields.file.en_US} />
       ),
+      [BLOCKS.LIST_ITEM]: (node, children) => {
+        <li>{children}</li>
+      },
     },
   }
   return (
