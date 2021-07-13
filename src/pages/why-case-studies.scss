@@ -1,0 +1,30 @@
+.why-case-studies-page {
+    .hero {
+        .header-bg {
+            opacity: 0.8;
+        }
+        .arrow-link a {
+            display: none;
+        }
+    }
+    p {
+        b {
+            font-size: 1.25rem;
+        }
+        a {
+            font-weight: bold;
+            &:hover {
+                text-decoration: none;
+            }
+        }
+    }
+    h3 {
+        margin: 40px 0 20px 0;
+    }
+    h4 {
+        font-size: 1.5rem;
+    }
+    .hero {
+        max-height: 60vh;
+    }
+}

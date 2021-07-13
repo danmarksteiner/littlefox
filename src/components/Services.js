@@ -11,8 +11,8 @@ const Services = ({ services, testimonials }) => {
         <img src="services-image.jpg" />
       </div>
       {/* <div className="services-gradient"></div> */}
-      <div className="container">
-          <h2>I can help you with a whole bunch of editorial services</h2>
+      {/* <div className="container"> */}
+          {/* <h2>I can help you with a whole bunch of editorial services</h2>
           <ul>
             {services.edges.map((service) => (
               <li key={service.node.id}>
@@ -21,9 +21,9 @@ const Services = ({ services, testimonials }) => {
               </li>
             ))}
           </ul>
-          <p><Link to="/services">Find out more</Link></p>
-      </div>
-      {/* <Testimonials testimonials={testimonials} /> */}
+          <p><Link to="/services">Find out more</Link></p> */}
+      {/* </div> */}
+      <Testimonials testimonials={testimonials} />
     </div>
   )
 }

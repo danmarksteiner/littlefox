@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import { SiFacebook, SiTwitter, SiInstagram } from "react-icons/si";
 import { IoIosArrowDown, IoIosMenu, IoIosClose } from "react-icons/io";
 import { Link } from "gatsby"
 import Img from 'gatsby-image'
@@ -64,17 +63,11 @@ class Hero extends Component {
         <nav className={(this.state.navOpen) ? 'navigation open' : 'navigation closed'}>
             <ul>
             <li><Link to="/">Home</Link></li>
-              <li><Link to="../#About">About me</Link></li>
+              <li><Link to="../#About">About</Link></li>
               <li><Link to="../services">Services</Link></li>
-              {/* <li><Link to="../blog">Blog</Link></li> */}
-              {/* <li><Link to="../#Testimonials">Testimonials</Link></li> */}
-              <li><Link to="../#contact">Get in touch</Link></li>
+              <li><Link to="../why-case-studies">Why Case Studies?</Link></li>
+              <li><Link to="#contact" onClick={this.navigationToggle}>Contact</Link></li>
             </ul>
-            {/* <ul className="social">
-              <li><SiFacebook /></li>
-              <li><SiTwitter /></li>
-              <li><SiInstagram /></li>
-            </ul> */}
         </nav>
         <this.Renderlogo />
         <div className="arrow-link">
@@ -86,5 +79,4 @@ class Hero extends Component {
     )
   }
 }
-
 export default Hero

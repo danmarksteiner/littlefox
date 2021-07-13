@@ -1,0 +1,13 @@
+.not-found-page {
+    .hero {
+        max-height: 60vh;
+    }
+    p {
+        a {
+            font-weight: bold;
+            &:hover {
+                text-decoration: none;
+            }
+        }
+    }
+}

@@ -44,6 +44,14 @@
     b {
       font-size: 1.25rem;
     }
+    a {
+      color: #525252;
+      font-weight: bold;
+      text-decoration: underline;
+      &:hover {
+        text-decoration: none;
+      }
+    }
   }
   .accreditations {
     .gatsby-image-wrapper {
