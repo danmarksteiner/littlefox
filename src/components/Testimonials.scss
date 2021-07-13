@@ -1,11 +1,12 @@
 .testimonials {
   max-width: 1200px;
   margin: auto;
-  padding: 0 0 80px;
+  padding: 0;
   position: relative;
   @media (hover: none) {
     display: none;
   }
+  
   .carousel-inner {
     padding: 0 20px;
   }
@@ -39,6 +40,7 @@
   .carousel-indicators {
     margin: auto 0;
     bottom: -40px;
+    display: none;
     li {
       background-color: #fff;
       border-radius: 50%;
@@ -48,6 +50,11 @@
   }
   .carousel-control-next,
   .carousel-control-prev {
+    display: none;
+  }
+}
+#Testimonials {
+  @media (hover: none) {
     display: none;
   }
 }
