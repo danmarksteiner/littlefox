@@ -4,6 +4,7 @@ import get from 'lodash/get'
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
 import { SiFacebook, SiTwitter, SiInstagram } from "react-icons/si";
 import { IoIosMenu, IoIosClose } from "react-icons/io";
+import RichTextRenderer from '../components/RichTextRenderer'
 import './services.scss'
 import './why-case-studies.scss'
 import Hero from '../components/Hero'
@@ -36,7 +37,7 @@ class Services extends Component {
   }
   render() {
     
-    const pageBody = get(this.props, 'data.contentfulWhyCaseStudiesPageBodyRichTextNode')
+    const pageBody = get(this.props, 'data.contentfulWhyCaseStudies.pageBody.json')
     const headerBackgroundImage = get(this.props, 'data.contentfulServicesHeaderBackground.servicesHeaderImage')
 
     return (
@@ -44,7 +45,9 @@ class Services extends Component {
         <Hero headerBackgroundImage={headerBackgroundImage} pageTitle={'Why Case Studies?'} />
         <div className="services-container">
           <div className="container">
-            {documentToReactComponents(pageBody.json)}
+            {/* {console.log(pageBody)}
+          <RichTextRenderer richTextDocument={pageBody} /> */}
+          {documentToReactComponents(pageBody)}
           </div>
         </div>
         <ContactForm />
@@ -64,8 +67,10 @@ export const pageQuery = graphql`
         }
       }
     }
-    contentfulWhyCaseStudiesPageBodyRichTextNode {
-      json
+    contentfulWhyCaseStudies {
+      pageBody {
+        json
+      }
     }
   }
 `
