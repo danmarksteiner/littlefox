@@ -7,6 +7,7 @@ const RichTextRenderer = ({ richTextDocument }) => {
   const website_url = 'https://littlefoxeditorial.com'
   const options = {
     renderNode: {
+
       [BLOCKS.PARAGRAPH]: (node, children) => <p>{children}</p>,
       [INLINES.HYPERLINK]: (node) => {
         return (
@@ -23,11 +24,22 @@ const RichTextRenderer = ({ richTextDocument }) => {
           </a>
         )
       },
-      [BLOCKS.EMBEDDED_ASSET]: (node) => (
-        <SingleImageAsset imageAsset={node.data.target.fields.file.en_US} />
+      [BLOCKS.EMBEDDED_ASSET]: (node, children) => (
+        <SingleImageAsset imageAsset={node.data.target.fields.file["en-US"]} />
       ),
       [BLOCKS.LIST_ITEM]: (node, children) => {
-        <li>{children}</li>
+        const UnTaggedChildren = documentToReactComponents(node, {
+          renderNode: {
+            [BLOCKS.PARAGRAPH]: (node, children) => children,
+            [BLOCKS.LIST_ITEM]: (node, children) => children,
+          },
+        })
+
+        return (
+          <li>
+            <p>{UnTaggedChildren}</p>
+          </li>
+        )
       },
     },
   }
