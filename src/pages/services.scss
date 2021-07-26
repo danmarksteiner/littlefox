@@ -16,7 +16,7 @@
     hr {
       width: 100%;
     }
-    &:last-child {
+    &:nth-child(7) {
       hr {
         display: none;
       }

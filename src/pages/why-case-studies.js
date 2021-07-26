@@ -49,7 +49,6 @@ class Services extends Component {
         <div className="services-container">
           <div className="container">
             <RichTextRenderer richTextDocument={pageBody} />
-            {/* <div>{documentToReactComponents(pageBody)}</div> */}
           </div>
         </div>
         <ContactForm />
